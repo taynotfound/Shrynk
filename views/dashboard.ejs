@@ -1,0 +1,45 @@
+<!-- views/dashboard.ejs -->
+<%- include('header', { title: 'Shrynk Dashboard', user: user }) %>
+<div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold mb-4">Shrynk Dashboard</h1>
+    <form action="/links/create" method="POST" class="mb-4">
+        <div class="flex items-center">
+            <input type="text" name="originalUrl" placeholder="URL" class="border-lightBlue border rounded-md p-3 w-96 bg-gray-800 text-white mr-4" required>
+            <input type="text" name="customShortUrl" placeholder="Shrynk Code" class="border-lightBlue border rounded-md p-3 w-32 bg-gray-800 text-white" required>
+        </div>
+        <button type="submit" class="mt-4 bg-purple-600 text-white p-3 rounded flex items-center justify-center">
+            <i class="material-icons text-white mr-2">link</i>Shrynk it!
+        </button>
+    </form>
+    <br>
+    <h2 class="text-3xl font-bold mb-5">Your Links</h2>
+    <ul id="linkList">
+        <% links.forEach(link => { %>
+            <li class="mb-2 flex justify-between items-center">
+                <% if (link.disabled) { %>
+                    <span class="text-red-600 pr-6 font-bold">Disabled</span>
+                <% } %>
+                <span class="flex-1"><a class="text-xl font-bold hover:text-purple-500 transition duration-100" href="/l/<%= link.shortUrl %>"><%= link.shortUrl %>:</a> <a href="<%= link.originalUrl %>" class="text-xl text-purple-100 hover:text-purple-300 transition duration-100"><%= link.originalUrl %></a> <span class="text-gray-300 text-xl">(Clicks: <%= link.clicks %>)</span></span>
+                <% if (link.disabled) { %>
+                    <form action="/links/enable/<%= link.shortUrl %>" method="POST" class="inline">
+                        <button type="submit" class="bg-green-600 text-white p-2 rounded mr-4 flex items-center justify-center">
+                            <i class="material-icons text-white mr-2">toggle_on</i>Enable
+                        </button>
+                    </form>
+                <% } else { %>
+                    <form action="/links/disable/<%= link.shortUrl %>" method="POST" class="inline">
+                        <button type="submit" class="bg-red-600 text-white p-2 rounded mr-4 flex items-center justify-center">
+                            <i class="material-icons text-white mr-2">toggle_off</i>Disable
+                        </button>
+                    </form>
+                <% } %>
+                <form action="/links/delete/<%= link.shortUrl %>" method="POST" class="inline">
+                    <button type="submit" class="bg-gray-600 text-white p-2 rounded mr-4 flex items-center justify-center">
+                        <i class="material-icons text-white mr-2">delete</i>Delete
+                    </button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+<%- include('footer') %>

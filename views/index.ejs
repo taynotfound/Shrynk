@@ -1,0 +1,51 @@
+<!-- views/index.ejs -->
+<%- include('header', { title: 'Welcome to Shrynk', user: user }) %>
+<div class="container mx-auto p-8 text-center">
+    <h1 class="text-4xl font-bold mb-4">
+        <span class="flex items-center justify-center">
+            <i class="material-icons text-purple-600 text-3xl mr-2">home</i> 
+            Welcome to Shrynk
+        </span>
+    </h1>
+    <p class="text-lg mb-4 text-lightBlue font-bold">Small Links, Big Impact.</p>
+    <p class="text-lg mb-4">Shrynk is a modern URL shortener that helps you manage and track your links. With our easy-to-use interface, you can create, customize, and manage your short links with ease.</p>
+    <p class="text-lg mb-4">Some of our features include:</p>
+    <div class="flex flex-wrap justify-center items-center text-lg mb-4">
+        <div class="m-2 flex items-center">
+            <i class="material-icons text-purple-600 text-2xl mr-2">link</i>
+            <p>Customizable short URLs</p>
+        </div>
+        <div class="m-2 flex items-center">
+            <i class="material-icons text-purple-600 text-2xl mr-2">bar_chart</i>
+            <p>Link management and tracking</p>
+        </div>
+        <div class="m-2 flex items-center">
+            <i class="material-icons text-purple-600 text-2xl mr-2">analytics</i>
+            <p>Link analytics</p>
+        </div>
+        <div class="m-2 flex items-center">
+            <i class="material-icons text-purple-600 text-2xl mr-2">toggle_off</i>
+            <p>Link disabling and enabling</p>
+        </div>
+        <div class="m-2 flex items-center">
+            <i class="material-icons text-purple-600 text-2xl mr-2">lock</i>
+            <p>Security and reliabilty</p>
+        </div>
+        <div class="m-2 flex items-center">
+            <i class="material-icons text-purple-600 text-2xl mr-2">person</i>
+            <p>User-friendly interface</p>
+        </div>
+    </div>
+    <p class="text-lg mb-24">Ready to get started? Sign up or log in to your account now!</p>
+    <% if (user) { %>
+        <a href="/dashboard" class="bg-purple-600 text-white p-2 rounded-lg shadow hover:shadow-md transition-shadow duration-300 flex items-center justify-center w-36 mx-auto">
+            <i class="material-icons text-white text-lg mr-1">arrow_forward</i> Get Started
+        </a>
+    <% } else { %>
+        <a href="/auth/login" class="bg-purple-600 text-white p-2 rounded-lg shadow hover:shadow-md transition-shadow duration-300 flex items-center justify-center w-36 mx-auto">
+            <i class="material-icons text-white text-lg mr-1">arrow_forward</i> Get Started
+        </a>
+    <% } %>
+</div>
+
+<%- include('footer') %>

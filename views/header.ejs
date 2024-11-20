@@ -1,0 +1,30 @@
+<!-- views/header.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="/output.css" as="style">
+    <link rel="stylesheet" href="/output.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="prefetch" href="/dashboard" as="document">
+    <link rel="prefetch" href="/auth/login" as="document">
+    <link rel="icon" type="image/png" href="/shrynk_logo.png">
+    <title><%= title %></title>
+</head>
+<body class="bg-gray-900 text-white">
+    <header class="p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <img src="/shrynk_logo_text.png" alt="Shrynk Logo" class="w-16 h-12 cursor-pointer" onclick="window.location.href = '/'">
+            <nav>
+                <% if (user != null) { %>
+                    <a href="/dashboard" class="mr-4">Welcome, <%= user.username %>!</a>
+                    <a href="/auth/logout" class="text-lightBlue hover:underline">Logout</a>
+                <% } else { %>
+                    <a href="/auth/login" class="text-purple-600 hover:underline">Login</a>
+                    <a href="/auth/register" class="ml-4 text-purple-600 hover:underline">Register</a>
+                <% } %>
+            </nav>
+        </div>
+    </header>
