@@ -1,0 +1,14 @@
+<%- include('header', { title: 'Redirecting - Shrynk', user: null }) %>
+<div class="items-center justify-center h-screen">
+    <div class="bg-gray-800 mt-16 p-8 rounded shadow-md w-11/12 md:w-96 mx-auto">
+        <h1 class="text-center text-2xl font-bold mb-4 text-purple-600">Redirecting...</h1>
+        <p class="text-center">You are being redirected to a new page. If you are not redirected automatically, please click <a href="<%= link %>" class="text-purple-600 hover:underline">here</a>.</p>
+    </div>
+    <div class="text-center text-gray-500 mt-4 mx-auto">Powered by <a href="/" class="text-purple-600 hover:underline">Shrynk</a> - Small Links, Big Impact.</div>
+    <script>
+        setTimeout(() => {
+            window.location.href = "<%= link %>";
+        }, 2500);
+    </script>
+</div>
+<%- include('footer') %>
