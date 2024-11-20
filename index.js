@@ -68,11 +68,12 @@ app.get("/l/:shortUrl", async (req, res) => {
     const { shortUrl } = req.params;
     const linkData = await db.get(`link_${shortUrl}`);
     if (linkData) {
+        console.log(linkData.disabled)
         if (!linkData.disabled) {
             let author = linkData.author || "Tay";
             await db.set(`${author}.links.${shortUrl}.clicks`, (linkData.clicks || 0) + 1);
             await db.set(`link_${shortUrl}.clicks`, (linkData.clicks || 0) + 1);
-            return res.redirect(linkData.originalUrl);
+            return res.render("redirect", { link: linkData.originalUrl });
         } else {
             return res.status(410).send('This link has been disabled.');
         }
