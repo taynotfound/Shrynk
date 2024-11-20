@@ -1,7 +1,7 @@
 <!-- views/index.ejs -->
 <%- include('header', { title: 'Welcome to Shrynk', user: user }) %>
-<div class="container mx-auto p-8 text-center">
-    <h1 class="text-4xl font-bold mb-4">
+<div class="container mx-auto p-4 md:p-8 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">
         <span class="flex items-center justify-center">
             <i class="material-icons text-purple-600 text-3xl mr-2">home</i> 
             Welcome to Shrynk
@@ -29,7 +29,7 @@
         </div>
         <div class="m-2 flex items-center">
             <i class="material-icons text-purple-600 text-2xl mr-2">lock</i>
-            <p>Security and reliabilty</p>
+            <p>Security and reliability</p>
         </div>
         <div class="m-2 flex items-center">
             <i class="material-icons text-purple-600 text-2xl mr-2">person</i>
@@ -47,5 +47,4 @@
         </a>
     <% } %>
 </div>
-
 <%- include('footer') %>
