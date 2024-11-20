@@ -7,7 +7,7 @@ const analyticsRoutes = require('./routes/analytics');
 const { QuickDB } = require('quick.db');
 const db = new QuickDB();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3555;
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');

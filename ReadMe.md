@@ -28,7 +28,7 @@ Shrynk is a modern URL shortener that allows users to create, customize, and man
    ```bash
    npm start
    ```
-   The application will be running on `http://localhost:3000`.
+   The application will be running on `http://localhost:3555`.
 
 4. **Visit the Application**
    You can visit the live application at [https://shrynk.taymaerz.de](https://shrynk.taymaerz.de) (soon gonna buy an actual short domain).
